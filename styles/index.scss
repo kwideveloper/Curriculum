@@ -1,0 +1,21 @@
+@import "home";
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../fonts/Cabin-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans";
+    src: url("../fonts/JosefinSans-Regular.ttf");
+}
+
+body,html {
+    font-family: "JosefinSans";
+}
+
+body {
+    font-family: "Cabin","Arial";
+}
+
+

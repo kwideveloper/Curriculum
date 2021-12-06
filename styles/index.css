@@ -1,0 +1,211 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-shadow: 0 0 15px orange;
+          box-shadow: 0 0 15px orange;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: black;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: orange;
+  font-weight: bold;
+}
+
+nav a:hover::after {
+  opacity: 1;
+  width: 100%;
+}
+
+nav a::after {
+  content: "";
+  height: 5px;
+  background: orange;
+  width: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+nav a i {
+  -webkit-animation: changeColor 3s ease-in-out alternate infinite;
+          animation: changeColor 3s ease-in-out alternate infinite;
+}
+
+@-webkit-keyframes changeColor {
+  to {
+    color: #5ed3f3;
+  }
+}
+
+@keyframes changeColor {
+  to {
+    color: #5ed3f3;
+  }
+}
+
+section {
+  margin-top: 50px;
+}
+
+#home {
+  margin-top: 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+#home #self-card {
+  z-index: 500;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  height: 300px;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px gray;
+          box-shadow: 0 0 10px gray;
+  background: linear-gradient(45deg, transparent, orange);
+}
+
+#home #self-card img {
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#home #self-card p {
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 5px;
+  color: white;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+  margin: 0;
+  border: 1px solid white;
+  border-left: none;
+  font-size: 14px;
+}
+
+#home #self-card p span {
+  font-style: italic;
+}
+
+#home #self-card p:nth-of-type(3) {
+  top: 0;
+  position: absolute;
+  right: 0;
+  left: inherit;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid white;
+  border-right: 0;
+}
+
+#home #self-card:hover {
+  background-size: 100%;
+}
+
+#home .box-3d p {
+  border: 1px dashed orange !important;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+  border-radius: 20px !important;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url("../fonts/Cabin-Regular.ttf");
+}
+
+@font-face {
+  font-family: "JosefinSans";
+  src: url("../fonts/JosefinSans-Regular.ttf");
+}
+
+body, html {
+  font-family: "JosefinSans";
+}
+
+body {
+  font-family: "Cabin","Arial";
+}
+/*# sourceMappingURL=index.css.map */
