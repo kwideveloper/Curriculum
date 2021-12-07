@@ -43,6 +43,8 @@ home.addEventListener("mousemove", (e) => {
 //---
 
 // On mouse In & mouse Out
+
+// Mouse In
 home.addEventListener("mouseenter", () => {
     
     // Timeout To leave the card open
@@ -94,6 +96,7 @@ home.addEventListener("mouseenter", () => {
 
 })
 
+// Mouse Out
 home.addEventListener("mouseleave", () => {
 
     selfCard.style.transition = "all .7s ease-in-out";
@@ -146,6 +149,35 @@ home.addEventListener("mouseleave", () => {
   
 })
 //---
+
+
+
+
+// Creating custom cursor
+const cursor = document.createElement("div");
+cursor.setAttribute("id","cursor");
+
+const point = document.createElement("div");
+point.classList.add("point");
+
+cursor.appendChild(point);
+
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove", (e) => {
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
+})
+
+document.addEventListener("click", () => {
+    cursor.classList.add("click");
+    
+    setTimeout(() =>{
+        cursor.classList.remove("click");
+    },200);
+    
+})
+// ---
 
 
 

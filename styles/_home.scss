@@ -3,6 +3,7 @@ body,html {
     padding: 0;
     scroll-behavior: smooth;
     height: 100%;
+    cursor: none;
 }
 
 nav {
@@ -16,6 +17,7 @@ nav {
     top: 0;
     background: black;
     z-index: 10;
+    font-family: "Cabin";
 }
 
 nav a{
@@ -76,6 +78,7 @@ section {
     justify-content: center;
     transform-style: preserve-3d;
     perspective: 1000px;
+    // cursor: none;
 
     .background{
         background: url("../images/background.jpg"), rgba(0,0,0,.4);
@@ -95,7 +98,7 @@ section {
         z-index: 500;
         transform-style: preserve-3d;
         height: 300px;
-        width: 300px;
+        width: 250px;
         display:flex;
         align-items: flex-start;
         justify-content: flex-end;
@@ -121,11 +124,11 @@ section {
             border-radius: 10px;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+            border-left: none;
             padding: 5px;
             color: white;
             margin:0;
             box-shadow: 0 0 4px white;
-            border-left: none;
             font-size: 14px;
             transition: all .7s ease-in-out;
 
@@ -240,13 +243,60 @@ section {
        border-bottom-right-radius: "0";
 
         &>p{
-            border: 1px dashed $orange!important;
+            border: 1px inset $orange!important;
             box-shadow: 0 0 5px black;
             // border-radius: 20px!important;
         }
 
     }
 
+
+}
+
+
+// Cursor
+#cursor {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    border-radius: 50%;
+    border: 2px solid $orange;
+    pointer-events: none;
+    z-index: 20;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 0 5px black;
+    
+    .point {
+        content: "";
+        position: absolute;
+        left: calc(10px - 4px);
+        top: calc(10px - 4px);
+        width: 4px;
+        height: 4px;
+        border-radius: 50px;
+        background: $orange;
+    }
+}
+
+// Click animation
+.click {
+
+    .point {
+        border: 2px solid $orange;
+        animation: clickAnimation .2s ease-in-out;
+    }
+    
+}
+
+@keyframes clickAnimation {
+    0%{
+        transform: scale(1);
+    } 100% {
+        transform: scale(15);
+        opacity: 0;
+    }
 
 }
 

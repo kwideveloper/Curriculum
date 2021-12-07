@@ -3,6 +3,7 @@ body, html {
   padding: 0;
   scroll-behavior: smooth;
   height: 100%;
+  cursor: none;
 }
 
 nav {
@@ -26,6 +27,7 @@ nav {
   top: 0;
   background: black;
   z-index: 10;
+  font-family: "Cabin";
 }
 
 nav a {
@@ -133,7 +135,7 @@ section {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   height: 300px;
-  width: 300px;
+  width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,12 +175,12 @@ section {
   border-radius: 10px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  border-left: none;
   padding: 5px;
   color: white;
   margin: 0;
   -webkit-box-shadow: 0 0 4px white;
           box-shadow: 0 0 4px white;
-  border-left: none;
   font-size: 14px;
   -webkit-transition: all .7s ease-in-out;
   transition: all .7s ease-in-out;
@@ -339,9 +341,67 @@ section {
 }
 
 #home .self-card-hover > p {
-  border: 1px dashed orange !important;
+  border: 1px inset orange !important;
   -webkit-box-shadow: 0 0 5px black;
           box-shadow: 0 0 5px black;
+}
+
+#cursor {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  border-radius: 50%;
+  border: 2px solid orange;
+  pointer-events: none;
+  z-index: 20;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+}
+
+#cursor .point {
+  content: "";
+  position: absolute;
+  left: calc(10px - 4px);
+  top: calc(10px - 4px);
+  width: 4px;
+  height: 4px;
+  border-radius: 50px;
+  background: orange;
+}
+
+.click .point {
+  border: 2px solid orange;
+  -webkit-animation: clickAnimation .2s ease-in-out;
+          animation: clickAnimation .2s ease-in-out;
+}
+
+@-webkit-keyframes clickAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(15);
+            transform: scale(15);
+    opacity: 0;
+  }
+}
+
+@keyframes clickAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(15);
+            transform: scale(15);
+    opacity: 0;
+  }
 }
 
 @font-face {
@@ -356,9 +416,5 @@ section {
 
 body, html {
   font-family: "JosefinSans";
-}
-
-body {
-  font-family: "Cabin","Arial";
 }
 /*# sourceMappingURL=index.css.map */
