@@ -114,6 +114,20 @@ section {
           perspective: 1000px;
 }
 
+#home .background {
+  background: url("https://i.pinimg.com/originals/3d/08/e0/3d08e03cb40252526fee2036a67f07f1.gif"), linear-gradient(45deg, rgba(0, 128, 0, 0.24), rgba(255, 166, 0, 0.24));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: color;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+
 #home #self-card {
   z-index: 500;
   -webkit-transform-style: preserve-3d;
@@ -136,7 +150,12 @@ section {
   border-radius: 10px;
   -webkit-box-shadow: 0 0 10px gray;
           box-shadow: 0 0 10px gray;
+  position: relative;
   background: linear-gradient(45deg, transparent, orange);
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
+  -webkit-transform: translateZ(300px);
+          transform: translateZ(300px);
 }
 
 #home #self-card img {
@@ -156,12 +175,13 @@ section {
   border-bottom-left-radius: 0;
   padding: 5px;
   color: white;
-  -webkit-transition: all .5s ease-out;
-  transition: all .5s ease-out;
   margin: 0;
-  border: 1px solid white;
+  -webkit-box-shadow: 0 0 4px white;
+          box-shadow: 0 0 4px white;
   border-left: none;
   font-size: 14px;
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
 }
 
 #home #self-card p span {
@@ -180,15 +200,102 @@ section {
   border-right: 0;
 }
 
+@-webkit-keyframes bouncing {
+  from {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+  }
+  to {
+    -webkit-transform: translateZ(35px);
+            transform: translateZ(35px);
+  }
+}
+
+@keyframes bouncing {
+  from {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+  }
+  to {
+    -webkit-transform: translateZ(35px);
+            transform: translateZ(35px);
+  }
+}
+
+#home #self-card .description {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  left: 0;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-transition: all .7s ease-out;
+  transition: all .7s ease-out;
+  -webkit-box-shadow: 0 0 10px gray;
+          box-shadow: 0 0 10px gray;
+  color: white;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+#home #self-card .description h2 {
+  -webkit-transform: translateZ(60px);
+          transform: translateZ(60px);
+}
+
+#home #self-card .description p {
+  -webkit-transform: translateZ(40px);
+          transform: translateZ(40px);
+}
+
+#home #self-card .description i {
+  color: orange;
+}
+
+#home #self-card .hover-description {
+  -webkit-animation: hoverDescription .7s ease-out forwards;
+          animation: hoverDescription .7s ease-out forwards;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 1;
+}
+
 #home #self-card:hover {
   background-size: 100%;
 }
 
-#home .box-3d p {
+#home .self-card-hover {
+  background: "linear-gradient(45deg, transparent, orange)";
+  -webkit-transform: "translateX(-100%) translateZ(300px)";
+          transform: "translateX(-100%) translateZ(300px)";
+  border-top-right-radius: "0";
+  border-bottom-right-radius: "0";
+}
+
+#home .self-card-hover > p {
   border: 1px dashed orange !important;
   -webkit-box-shadow: 0 0 5px black;
           box-shadow: 0 0 5px black;
-  border-radius: 20px !important;
 }
 
 @font-face {

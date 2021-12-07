@@ -76,6 +76,20 @@ section {
     justify-content: center;
     transform-style: preserve-3d;
     perspective: 1000px;
+
+    .background{
+        background: url("https://i.pinimg.com/originals/3d/08/e0/3d08e03cb40252526fee2036a67f07f1.gif"), linear-gradient(45deg, rgba(0, 128, 0, 0.24), rgba(255, 166, 0, 0.24));
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-blend-mode: color;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translateZ(0px);
+    }
+   
     
     #self-card {
         z-index: 500;
@@ -88,7 +102,10 @@ section {
         flex-direction: column;
         border-radius: 10px;
         box-shadow: 0 0 10px gray;
+        position: relative;
         background: linear-gradient(45deg, transparent, orange);
+        transition: all .7s ease-in-out; 
+        transform: translateZ(300px);
         
         img {
             border-radius: 10px;
@@ -106,11 +123,12 @@ section {
             border-bottom-left-radius: 0;
             padding: 5px;
             color: white;
-            transition: all .5s ease-out;
             margin:0;
-            border: 1px solid white;
+            // border: 1px solid white;
+            box-shadow: 0 0 4px white;
             border-left: none;
             font-size: 14px;
+            transition: all .7s ease-in-out;
 
             span {
                 font-style: italic;
@@ -126,28 +144,81 @@ section {
                 border-bottom-right-radius: 0;
                 border: 1px solid white;
                 border-right: 0;
+                
+                @keyframes bouncing {
+                    from {transform: translateZ(50px);}
+                    to {transform: translateZ(35px);}
+                }
             }
 
       
         }
+
+        .description {
+            position: absolute; 
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            left: 0;
+            opacity: 0;
+            background: rgba(0,0,0,.7);
+            // backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: all .2s ease-in-out;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: all .7s ease-out;
+            box-shadow: 0 0 10px gray;
+            color: white;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+
+            h2 {
+                transform: translateZ(60px);
+            }
+            
+            p {
+                transform: translateZ(40px);
+            }
+            
+            i {
+                color: orange;
+            }
+        }
+
+        .hover-description {
+            animation: hoverDescription .7s ease-out forwards;
+            transform: translateX(100%);
+            opacity: 1;
+        }   
+
         
         &:hover {
             background-size: 100%;
         }
 
+
+
     }
 
-    .box-3d {
+    .self-card-hover {
 
-        p{
+       background: "linear-gradient(45deg, transparent, orange)";
+       transform: "translateX(-100%) translateZ(300px)";
+       border-top-right-radius: "0";
+       border-bottom-right-radius: "0";
+
+        &>p{
             border: 1px dashed orange!important;
             box-shadow: 0 0 5px black;
-            border-radius: 20px!important;
+            // border-radius: 20px!important;
         }
-    
+
     }
 
-   
 
 }
 
