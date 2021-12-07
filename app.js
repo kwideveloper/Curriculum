@@ -28,6 +28,7 @@ const paragraphs = document.querySelectorAll("#self-card>p");
 const description = document.querySelector(".description");
 const selfImage = document.querySelector("#self-card img");
 const skills = document.querySelector(".description h2");
+const skillsParagraphs = document.querySelectorAll(".description .skill");
 
 home.addEventListener("mousemove", (e) => {
 
@@ -36,9 +37,7 @@ home.addEventListener("mousemove", (e) => {
     
     selfCard.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg) translateX(-50%) translateZ(300px)`;
     description.classList.add("hover-description");
-    skills.style.transform = `rotateY(${xAxis}deg) translateZ(100px)`;
-    
-    
+
     
 })
 //---
@@ -46,15 +45,18 @@ home.addEventListener("mousemove", (e) => {
 // On mouse In & mouse Out
 home.addEventListener("mouseenter", () => {
     
+    // Timeout To leave the card open
     setTimeout(() =>{
         
         selfCard.style.transition = "none";
         selfCard.classList.add("self-card-hover");
 
-        // description.classList.add("hover-description");
-
+        selfImage.style.borderTopRightRadius = "0";
         selfImage.style.borderBottomRightRadius = "0";
         selfCard.style.borderTopRightRadius = "0";
+        selfCard.style.borderBottomRightRadius = "0";
+
+        skills.style.transform = "translateZ(80px)";
         
         paragraphs.forEach((paragraph,i) => {
 
@@ -69,7 +71,6 @@ home.addEventListener("mouseenter", () => {
                     executeParagraphAnimation();
                 }
             },`${i}00`);
-            
 
             const executeParagraphAnimation = () => {
                 setTimeout(() =>{
@@ -79,7 +80,17 @@ home.addEventListener("mouseenter", () => {
 
         })
 
+        skillsParagraphs.forEach((paragraph,i) => {
+
+            setTimeout(() =>{
+                paragraph.style.transform = "translateZ(50px)"; 
+            },`${i}00`)
+        })
+
+        
+
     },700);
+    //---
 
 })
 
@@ -92,6 +103,8 @@ home.addEventListener("mouseleave", () => {
     selfImage.style.borderBottomRightRadius = "10px";
     selfCard.style.borderTopRightRadius = "10px";
     selfCard.style.borderBottomRightRadius = "10px";
+
+    skills.style.transform = "translateZ(0)";
     
     paragraphs.forEach((paragraph,i) => {
         
@@ -112,10 +125,22 @@ home.addEventListener("mouseleave", () => {
         
     })
 
+    skillsParagraphs.forEach((paragraph,i) => {
+        paragraph.style.transform = "translateZ(10px)"; 
+    })
+
     setTimeout(() => {
         selfCard.style.transform = "translateX(0) translateY(0) translateZ(300px)";
         description.classList.remove("hover-description");  
     }, 700);
+
+    skillsParagraphs.forEach((paragraph) => {
+        paragraph.style.transform = "translateZ(10px)"; 
+    })
+
+
+
+    
     
 
   

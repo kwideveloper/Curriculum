@@ -115,10 +115,10 @@ section {
 }
 
 #home .background {
-  background: url("../images/background.jpg"), linear-gradient(45deg, transparent, orange 40%);
+  background: url("../images/background.jpg"), rgba(0, 0, 0, 0.4);
   background-size: cover;
   background-repeat: no-repeat;
-  background-blend-mode: luminosity;
+  background-blend-mode: color;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -260,13 +260,58 @@ section {
 }
 
 #home #self-card .description h2 {
-  -webkit-transform: translateZ(100px);
-          transform: translateZ(100px);
+  -webkit-transform: translateZ(10px);
+          transform: translateZ(10px);
+  z-index: 10;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
 }
 
-#home #self-card .description p {
-  -webkit-transform: translateZ(50px);
-          transform: translateZ(50px);
+#home #self-card .description h2 i {
+  color: white;
+  -webkit-filter: drop-shadow(1px 1px 1px orange);
+          filter: drop-shadow(1px 1px 1px orange);
+}
+
+#home #self-card .description div {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 90%;
+}
+
+#home #self-card .description .skill {
+  -webkit-transition: all .7 ease-in-out;
+  transition: all .7 ease-in-out;
+  -webkit-transform: translateZ(10px);
+          transform: translateZ(10px);
+  margin: 5px;
+  border-radius: 50px;
+  width: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0 0 2px white;
+          box-shadow: 0 0 2px white;
+}
+
+#home #self-card .description .skill i {
+  margin-left: 5px;
 }
 
 #home #self-card .description i {
@@ -286,7 +331,7 @@ section {
 }
 
 #home .self-card-hover {
-  background: "linear-gradient(45deg, transparent, orange)";
+  background: "linear-gradient(45deg, transparent, $orange)";
   -webkit-transform: "translateX(-100%) translateZ(300px)";
           transform: "translateX(-100%) translateZ(300px)";
   border-top-right-radius: "0";
