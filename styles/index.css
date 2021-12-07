@@ -115,10 +115,10 @@ section {
 }
 
 #home .background {
-  background: url("https://i.pinimg.com/originals/3d/08/e0/3d08e03cb40252526fee2036a67f07f1.gif"), linear-gradient(45deg, rgba(0, 128, 0, 0.24), rgba(255, 166, 0, 0.24));
+  background: url("../images/background.jpg"), linear-gradient(45deg, transparent, orange 40%);
   background-size: cover;
   background-repeat: no-repeat;
-  background-blend-mode: color;
+  background-blend-mode: luminosity;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -229,7 +229,8 @@ section {
   z-index: -1;
   left: 0;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: url("../images/background-description.gif") rgba(0, 0, 0, 0.7);
+  background-blend-mode: color;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -259,13 +260,13 @@ section {
 }
 
 #home #self-card .description h2 {
-  -webkit-transform: translateZ(60px);
-          transform: translateZ(60px);
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
 }
 
 #home #self-card .description p {
-  -webkit-transform: translateZ(40px);
-          transform: translateZ(40px);
+  -webkit-transform: translateZ(50px);
+          transform: translateZ(50px);
 }
 
 #home #self-card .description i {

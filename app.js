@@ -27,6 +27,7 @@ const selfCard = document.getElementById("self-card");
 const paragraphs = document.querySelectorAll("#self-card>p");
 const description = document.querySelector(".description");
 const selfImage = document.querySelector("#self-card img");
+const skills = document.querySelector(".description h2");
 
 home.addEventListener("mousemove", (e) => {
 
@@ -35,17 +36,18 @@ home.addEventListener("mousemove", (e) => {
     
     selfCard.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg) translateX(-50%) translateZ(300px)`;
     description.classList.add("hover-description");
-        
-        
-
+    skills.style.transform = `rotateY(${xAxis}deg) translateZ(100px)`;
+    
+    
+    
 })
 //---
 
 // On mouse In & mouse Out
 home.addEventListener("mouseenter", () => {
-
+    
     setTimeout(() =>{
-
+        
         selfCard.style.transition = "none";
         selfCard.classList.add("self-card-hover");
 
