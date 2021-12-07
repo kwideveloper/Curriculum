@@ -52,7 +52,7 @@ home.addEventListener("mouseenter", () => {
         // description.classList.add("hover-description");
 
         selfImage.style.borderBottomRightRadius = "0";
-        selfImage.style.borderTopRightRadius = "0";
+        selfCard.style.borderTopRightRadius = "0";
         
         paragraphs.forEach((paragraph,i) => {
 
@@ -86,10 +86,10 @@ home.addEventListener("mouseleave", () => {
     selfCard.style.transition = "all .7s ease-in-out";
     selfCard.classList.remove("self-card-hover");
 
-    
-
-    selfImage.style.borderBottomRightRadius = "10px";
     selfImage.style.borderTopRightRadius = "10px";
+    selfImage.style.borderBottomRightRadius = "10px";
+    selfCard.style.borderTopRightRadius = "10px";
+    selfCard.style.borderBottomRightRadius = "10px";
     
     paragraphs.forEach((paragraph,i) => {
         
