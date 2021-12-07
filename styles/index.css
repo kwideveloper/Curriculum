@@ -190,6 +190,10 @@ section {
   font-style: italic;
 }
 
+#home #self-card p:nth-last-of-type(2) {
+  border-bottom-left-radius: 10px;
+}
+
 #home #self-card p:nth-of-type(3) {
   top: 0;
   position: absolute;

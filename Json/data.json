@@ -1,0 +1,14 @@
+const language = [
+    {
+        age: "Age",
+        experience: "Experience",
+        skills: "Skills",
+    },
+    {
+        age: "Edad",
+        experience: "Experiencia",
+        skills: "Habilidades",
+    }
+]
+
+export default language;
