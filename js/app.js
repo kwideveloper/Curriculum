@@ -1,9 +1,7 @@
 const icoContainer = document.querySelector(".react-icon");
 const reactIco = document.querySelector("nav a i");
 
-
 // Animating React icon on hover
-
 var value = 0;
 var interval;
 
@@ -178,6 +176,7 @@ document.addEventListener("click", () => {
     
 })
 // ---
+
 
 
 

@@ -1,14 +1,29 @@
-const language = [
-    {
-        age: "Age",
-        experience: "Experience",
-        skills: "Skills",
-    },
-    {
-        age: "Edad",
-        experience: "Experiencia",
-        skills: "Habilidades",
-    }
-]
+{
+    "language":[
 
-export default language;
+        {
+            "home": "Home",
+            "about": "About",
+            "proyects": "Proyects",
+            "name": "Name",
+            "age": "Age",
+            "experience": "Experience",
+            "skills": "Skills" 
+        },
+
+        {
+            "home": "Inicio",
+            "about": "Sobre mi",
+            "proyects": "Proyectos",
+            "name": "Nombre",
+            "age": "Edad",
+            "experience": "Experiencia",
+            "skills": "Habilidades"
+         
+        }
+
+    
+    ]
+}
+    
+  
