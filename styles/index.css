@@ -2,8 +2,13 @@ body, html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  height: 100%;
   cursor: none;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 nav {
@@ -80,6 +85,7 @@ nav a::after {
 nav a i {
   -webkit-animation: changeColor 3s ease-in-out alternate infinite;
           animation: changeColor 3s ease-in-out alternate infinite;
+  margin-left: 5px;
 }
 
 @-webkit-keyframes changeColor {
@@ -92,6 +98,27 @@ nav a i {
   to {
     color: #5ed3f3;
   }
+}
+
+.nav-active {
+  color: orange;
+  font-weight: bold;
+}
+
+.nav-active::after {
+  content: "";
+  height: 5px;
+  background: white;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  opacity: 1;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  border: 1px solid orange;
+  border-bottom: 0;
 }
 
 #language {
@@ -146,6 +173,7 @@ nav a i {
           justify-content: center;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
+  background: black;
 }
 
 #language p {
@@ -172,28 +200,22 @@ nav a i {
   color: black;
 }
 
+#language p:active {
+  background: orange;
+}
+
 #language p:last-of-type {
   border-right: none;
 }
 
 #language .active {
   background: orange;
-  color: black;
+  color: white;
 }
 
-.language-animation {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 30;
-  background: black;
-  background-blend-mode: color;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
-  opacity: 0;
-  pointer-events: none;
+#language .active:hover {
+  background: #e49400;
+  color: white;
 }
 
 section {
@@ -219,10 +241,11 @@ section {
 }
 
 #home .background {
-  background: url("../images/background.jpg"), rgba(0, 0, 0, 0.4);
+  background: url("../images/background.jpg"), -webkit-gradient(linear, left top, left bottom, from(rgba(255, 166, 0, 0.596)), to(black));
+  background: url("../images/background.jpg"), linear-gradient(to bottom, rgba(255, 166, 0, 0.596), black);
   background-size: cover;
   background-repeat: no-repeat;
-  background-blend-mode: color;
+  background-blend-mode: soft-light;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -230,6 +253,7 @@ section {
   left: 0;
   -webkit-transform: translateZ(0px);
           transform: translateZ(0px);
+  pointer-events: none;
 }
 
 #home #self-card {
@@ -452,6 +476,56 @@ section {
           box-shadow: 0 0 5px black;
 }
 
+#about {
+  background: -webkit-gradient(linear, left top, left bottom, from(black), to(transparent));
+  background: linear-gradient(to bottom, black, transparent);
+  margin-top: 0;
+  height: 400px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#about div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 40%;
+  height: 100%;
+  background: black;
+  margin: 50px auto 0 auto;
+  padding: 20px;
+  -webkit-box-shadow: 0 0 20px white;
+          box-shadow: 0 0 20px white;
+  border-radius: 10px;
+}
+
+#about span {
+  color: orange;
+  font-weight: bold;
+}
+
 #cursor {
   width: 20px;
   height: 20px;
@@ -522,5 +596,7 @@ section {
 
 body, html {
   font-family: "JosefinSans";
+  background: #424242;
+  color: white;
 }
 /*# sourceMappingURL=index.css.map */

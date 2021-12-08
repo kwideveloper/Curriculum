@@ -2,8 +2,13 @@ body,html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    height: 100%;
     cursor: none;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 nav {
@@ -35,7 +40,6 @@ nav a{
         text-decoration: none;
         color: $orange;
         font-weight: bold;
-        // font-style: italic;
 
         &::after {
             opacity: 1;
@@ -58,12 +62,34 @@ nav a{
 
     i {
         animation: changeColor 3s ease-in-out alternate infinite;
+        margin-left: 5px;
     }
 
     @keyframes changeColor {
         to {color: #5ed3f3}
     }
 
+}
+
+.nav-active {
+
+    color: $orange;
+    font-weight: bold;
+
+    &::after {
+        content: "";
+        height: 5px;
+        background: white;
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        opacity: 1;
+        transition: all .2s ease-in-out;
+        border: 1px solid $orange;
+        border-bottom: 0;
+    }
 }
 
 #language {
@@ -108,6 +134,7 @@ nav a{
         justify-content: center;
         border-bottom-left-radius: 10px;
         border-top-left-radius: 10px;
+        background: black;
     }
 
     p {
@@ -126,6 +153,10 @@ nav a{
             color: black;
         }
 
+        &:active {
+            background: $orange;
+        }
+
         &:last-of-type {
             border-right: none;
         }
@@ -133,26 +164,17 @@ nav a{
 
     .active {
         background: $orange;
-        color: black;
+        color: white;
+
+        &:hover {
+            background: rgb(228, 148, 0);
+            color: white;
+
+        }
     }
 
 }
    
-
-
-.language-animation {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 30;
-    background: black;
-    background-blend-mode: color;
-    backdrop-filter: blur(5px);
-    transition: all .5s ease-in-out;
-    opacity: 0;
-    pointer-events: none;
-}
-
 section {
     margin-top: 50px;
 }
@@ -168,16 +190,17 @@ section {
     // cursor: none;
 
     .background{
-        background: url("../images/background.jpg"), rgba(0,0,0,.4);
+        background: url("../images/background.jpg"), linear-gradient(to bottom, rgba(255, 166, 0, 0.596), black);
         background-size: cover;
         background-repeat: no-repeat;
-        background-blend-mode: color;
+        background-blend-mode: soft-light;
         position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
         transform: translateZ(0px);
+        pointer-events: none;
     }
    
     
@@ -344,6 +367,40 @@ section {
 
 }
 
+#about {
+
+    background: linear-gradient(to bottom, black, transparent);
+    margin-top: 0;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    div {   
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 40%;
+        height: 100%;
+        background: black;
+        margin: 50px auto 0 auto;
+        padding: 20px;
+        // border: 1px solid white;
+        box-shadow: 0 0 20px white;
+        border-radius: 10px;
+    }
+
+    p {
+    }
+
+    span {
+        color: $orange;
+        font-weight: bold;
+    }
+}
 
 // Cursor
 #cursor {

@@ -1,4 +1,3 @@
-const languageSelected = 0|parseInt(localStorage.getItem("language"));
 
 // Animating Language button
 const language = document.getElementById("language");
@@ -10,7 +9,7 @@ language.addEventListener("mousemove", () => {
 })
 
 language.addEventListener("mouseleave", () => {
-    language.style.transform = "translateX(79px)";
+    language.style.transform = "translateX(80px)";
 })
 //---
 
@@ -18,20 +17,20 @@ language.addEventListener("mouseleave", () => {
 
 const changeLanguage = () => {
     
+    const languageSelected = parseInt(localStorage.getItem("language")|0);
     // Fetch the Json
     fetch("./json/data.json")
     .then(response => response.json())
     .then(data => {
-        
-        let languageSelected = parseInt(localStorage.getItem("language"));
 
         // Variables
         const navParagraphs = document.querySelectorAll("nav a");
         const skillParagraph = document.querySelector(".skills h2");
+        const descriptionDiv = document.querySelector("#about div");
         // ---
         
         if(languageSelected === 0){
-            const {age,skills,name,home,about,proyects} = data.language[languageSelected];
+            const {age,skills,name,home,about,proyects,description} = data.language[languageSelected];
 
             //Nav Paragraphs
             navParagraphs[0].innerHTML = home;
@@ -41,19 +40,24 @@ const changeLanguage = () => {
             // Card/Image Paragraphs
             paragraphs[0].childNodes[1].innerHTML = name;
             paragraphs[1].childNodes[1].innerHTML = age;
-            paragraphs[2].innerHTML = "<span>Experiencie</span>: 3 Years";
+            paragraphs[2].innerHTML = "<span> Experience </span>: 3 Years";
 
             skillParagraph.style.fontSize = "32px";
             skillParagraph.innerHTML = skills;
+
+            // Description
+            descriptionDiv.innerHTML = description;
+
             
             
         } else {
-            const {age,skills,name,home,about,proyects} = data.language[languageSelected];
-            
+            const {age,skills,name,home,about,proyects,description} = data.language[languageSelected];
+
             //Nav Paragraphs
             navParagraphs[0].innerHTML = home;
             navParagraphs[1].innerHTML = about;
             navParagraphs[2].innerHTML = proyects;
+
             // Card/Image Paragraphs
             paragraphs[0].childNodes[1].innerHTML = name;
             paragraphs[1].childNodes[1].innerHTML = age;
@@ -61,6 +65,9 @@ const changeLanguage = () => {
 
             skillParagraph.style.fontSize = "25px";
             skillParagraph.innerHTML = skills;
+
+            // Description
+            descriptionDiv.innerHTML = description;
         }
 
     })
@@ -92,13 +99,13 @@ es.addEventListener("click",() => {
 //---
 
 window.onload = () => {
-    let languageSelected = parseInt(localStorage.getItem("language"));
+    let languageSelected = parseInt(localStorage.getItem("language")|0);
     if(languageSelected === 0) {
         en.classList.add("active");
     } else {
         es.classList.add("active");
     }
 
-    changeLanguage()
+    changeLanguage();
 
 }

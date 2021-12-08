@@ -1,3 +1,8 @@
+// Initializing AOS
+AOS.init();
+// ---
+
+
 const icoContainer = document.querySelector(".react-icon");
 const reactIco = document.querySelector("nav a i");
 
@@ -140,11 +145,6 @@ home.addEventListener("mouseleave", () => {
     })
 
 
-
-    
-    
-
-  
 })
 //---
 
@@ -179,5 +179,46 @@ document.addEventListener("click", () => {
 
 
 
+// Intersection observer for the navbar
+    // FUNCTION
+    const observerFunction = (observer) => {
 
+        const navItems = document.querySelectorAll("nav a");
 
+        observer.forEach((element) => {
+
+            const {id} = element.target
+            const {isIntersecting} = element
+            // console.log(element.isIntersecting)
+            const removeClass = () => {
+                navItems.forEach(e => {
+                    e.classList.remove("nav-active");
+                })
+            }
+            
+            if(isIntersecting && id === "home") {
+                removeClass();
+                navItems[0].classList.add("nav-active");
+            } else if(isIntersecting && id === "about") {
+                removeClass();
+                navItems[1].classList.add("nav-active");
+            } else if(isIntersecting && id === "proyects") {
+                removeClass();
+                navItems[2].classList.add("nav-active");
+            } 
+
+          
+        })
+      
+    }
+    
+    // OBSERVER
+    const observer = new IntersectionObserver(observerFunction,{
+        root: null,
+        rootMargin: "0px",
+        threshold: 1
+    })
+
+    observer.observe(document.getElementById("home"));
+    observer.observe(document.getElementById("about"))
+//---
