@@ -132,7 +132,7 @@ nav a{
     }
 
     .active {
-        background: white;
+        background: $orange;
         color: black;
     }
 
@@ -247,7 +247,7 @@ section {
       
         }
 
-        .description {
+        .skills {
             position: absolute; 
             width: 100%;
             height: 100%;
@@ -311,7 +311,7 @@ section {
             }
         }
 
-        .hover-description {
+        .skills-description {
             animation: hoverDescription .7s ease-out forwards;
             transform: translateX(100%);
             opacity: 1;

@@ -1,4 +1,4 @@
-const languageSelected = 0|localStorage.getItem("language");
+const languageSelected = 0|parseInt(localStorage.getItem("language"));
 
 // Animating Language button
 const language = document.getElementById("language");
@@ -24,12 +24,16 @@ const changeLanguage = () => {
     .then(data => {
         
         let languageSelected = parseInt(localStorage.getItem("language"));
+
+        // Variables
+        const navParagraphs = document.querySelectorAll("nav a");
+        const skillParagraph = document.querySelector(".skills h2");
+        // ---
         
         if(languageSelected === 0){
-            const {age,experience,skill,name,home,about,proyects} = data.language[languageSelected];
+            const {age,skills,name,home,about,proyects} = data.language[languageSelected];
 
             //Nav Paragraphs
-            const navParagraphs = document.querySelectorAll("nav a");
             navParagraphs[0].innerHTML = home;
             navParagraphs[1].innerHTML = about;
             navParagraphs[2].innerHTML = proyects;
@@ -38,19 +42,25 @@ const changeLanguage = () => {
             paragraphs[0].childNodes[1].innerHTML = name;
             paragraphs[1].childNodes[1].innerHTML = age;
             paragraphs[2].innerHTML = "<span>Experiencie</span>: 3 Years";
-        } else {
-            const {age,experience,skill,name,home,about,proyects} = data.language[languageSelected];
 
+            skillParagraph.style.fontSize = "32px";
+            skillParagraph.innerHTML = skills;
+            
+            
+        } else {
+            const {age,skills,name,home,about,proyects} = data.language[languageSelected];
+            
             //Nav Paragraphs
-            const navParagraphs = document.querySelectorAll("nav a");
             navParagraphs[0].innerHTML = home;
             navParagraphs[1].innerHTML = about;
             navParagraphs[2].innerHTML = proyects;
-
             // Card/Image Paragraphs
             paragraphs[0].childNodes[1].innerHTML = name;
             paragraphs[1].childNodes[1].innerHTML = age;
             paragraphs[2].innerHTML = "<span>Experiencia</span>: 3 Años";
+
+            skillParagraph.style.fontSize = "25px";
+            skillParagraph.innerHTML = skills;
         }
 
     })

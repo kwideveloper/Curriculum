@@ -23,10 +23,10 @@ icoContainer.addEventListener("mouseout", () => {clearInterval(interval)});
 const home = document.getElementById("home");
 const selfCard = document.getElementById("self-card");
 const paragraphs = document.querySelectorAll("#self-card>p");
-const description = document.querySelector(".description");
+const description = document.querySelector(".skills");
 const selfImage = document.querySelector("#self-card img");
-const skills = document.querySelector(".description h2");
-const skillsParagraphs = document.querySelectorAll(".description .skill");
+const skills = document.querySelector(".skills h2");
+const skillsParagraphs = document.querySelectorAll(".skills .skill");
 
 home.addEventListener("mousemove", (e) => {
 
@@ -34,7 +34,7 @@ home.addEventListener("mousemove", (e) => {
     const yAxis = (window.innerHeight/2 - e.screenY) / 25;
     
     selfCard.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg) translateX(-50%) translateZ(300px)`;
-    description.classList.add("hover-description");
+    description.classList.add("skills-description");
 
     
 })
@@ -132,7 +132,7 @@ home.addEventListener("mouseleave", () => {
 
     setTimeout(() => {
         selfCard.style.transform = "translateX(0) translateY(0) translateZ(300px)";
-        description.classList.remove("hover-description");  
+        description.classList.remove("skills-description");  
     }, 700);
 
     skillsParagraphs.forEach((paragraph) => {

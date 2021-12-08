@@ -8,7 +8,7 @@
             "name": "Name",
             "age": "Age",
             "experience": "Experience",
-            "skills": "Skills" 
+            "skills": "Skills <i class='fas fa-graduation-cap'></i>" 
         },
 
         {
@@ -18,7 +18,7 @@
             "name": "Nombre",
             "age": "Edad",
             "experience": "Experiencia",
-            "skills": "Habilidades"
+            "skills": "Habilidades <i class='fas fa-graduation-cap'></i>"
          
         }
 
