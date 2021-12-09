@@ -222,3 +222,23 @@ document.addEventListener("click", () => {
     observer.observe(document.getElementById("home"));
     observer.observe(document.getElementById("about"))
 //---
+
+// Certificate animation
+const about = document.querySelector("#about div:first-of-type");
+const certificate = document.querySelector("#about .certificates");
+const seeCertificates = document.querySelector("#about .see-certificates");
+const hiddeCertificates = document.querySelector("#about .go-back");
+
+seeCertificates.addEventListener("click", () => {
+    certificate.style.opacity = "1";
+    certificate.style.pointerEvents = "initial";
+    about.style.opacity = 0;
+   
+})
+
+hiddeCertificates.addEventListener("click", () => {
+    certificate.style.opacity = "0";
+    certificate.style.pointerEvents = "none";
+    about.style.opacity = 1;
+})
+// ---
