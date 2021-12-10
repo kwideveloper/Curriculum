@@ -552,6 +552,9 @@ section {
         transition: all .5s ease;
         margin-top: 100px;
         box-shadow: 0 0 5px gray;
+        text-decoration: none;
+        color: white;
+        cursor: none;
 
         &:nth-of-type(1) {
             transform: rotateY(-25deg);
