@@ -181,13 +181,13 @@ document.addEventListener("click", () => {
 
 // Intersection observer for the navbar
     // FUNCTION
-    const observerFunction = (observer) => {
 
+    const observerFunction = (observer) => {
         const navItems = document.querySelectorAll("nav a");
-        const folderIco = document.querySelector("#proyects h2 i");
 
         observer.forEach((element) => {
 
+            const folderIco = document.querySelector("#proyects h2 i");
             const {id} = element.target
             const {isIntersecting} = element
             // console.log(element.isIntersecting)
@@ -211,21 +211,21 @@ document.addEventListener("click", () => {
                 folderIco.className = "fas fa-folder";
             }
 
-          
+            
         })
-      
-    }
     
-    // OBSERVER
-    const observer = new IntersectionObserver(observerFunction,{
-        root: null,
-        rootMargin: "0px",
-        threshold: .7
-    })
+    }
 
-    observer.observe(document.getElementById("home"));
-    observer.observe(document.getElementById("about"));
-    observer.observe(document.getElementById("proyects"));
+// OBSERVER
+const observer = new IntersectionObserver(observerFunction,{
+    root: null,
+    rootMargin: "0px",
+    threshold: .7
+})
+
+observer.observe(document.getElementById("home"));
+observer.observe(document.getElementById("about"));
+observer.observe(document.getElementById("proyects"));
 //---
 
 // Certificate animation
