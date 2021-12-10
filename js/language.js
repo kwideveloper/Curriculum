@@ -16,12 +16,10 @@ language.addEventListener("mouseleave", () => {
 // Changing language on click
 const changeLanguage = () => {
     
+    const data = languageData;
     let languageSelected = parseInt(localStorage.getItem("language")|0);
     // Fetch the Json
-    const getJson = async() => {
 
-        const response = await fetch("../json/data.json");
-        const data = await response.json();
 
          // Variables
          const navParagraphs = document.querySelectorAll("nav a");
@@ -36,11 +34,13 @@ const changeLanguage = () => {
          const aboutDownload = document.querySelector("#about .download"); 
          const proyectsTitle = document.querySelector("#proyects .title");
          // ---
+
+         
          
          // Function who writes the text
          const writeText = (languageSelected) => {
  
-             const {nav,age,skills,name,about,experience,proyects} = data.language[languageSelected];
+             const {nav,age,skills,name,about,experience,proyects} = data[languageSelected];
  
               //Nav Paragraphs
               navParagraphs[0].innerHTML = nav.home;
@@ -75,9 +75,7 @@ const changeLanguage = () => {
              writeText(1);
          }
 
-    }
 
-    getJson();
 
 
 }
