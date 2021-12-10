@@ -184,6 +184,7 @@ document.addEventListener("click", () => {
     const observerFunction = (observer) => {
 
         const navItems = document.querySelectorAll("nav a");
+        const folderIco = document.querySelector("#proyects h2 i");
 
         observer.forEach((element) => {
 
@@ -204,8 +205,11 @@ document.addEventListener("click", () => {
                 navItems[1].classList.add("nav-active");
             } else if(isIntersecting && id === "proyects") {
                 removeClass();
+                folderIco.className = "fas fa-folder-open";
                 navItems[2].classList.add("nav-active");
-            } 
+            } else {
+                folderIco.className = "fas fa-folder";
+            }
 
           
         })
