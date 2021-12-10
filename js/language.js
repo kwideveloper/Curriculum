@@ -111,5 +111,3 @@ if(languageSelected === 0) {
     es.classList.add("active");
 }
 
-changeLanguage();
-
