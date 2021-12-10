@@ -184,10 +184,10 @@ document.addEventListener("click", () => {
 
     const observerFunction = (observer) => {
         const navItems = document.querySelectorAll("nav a");
+        const folderIco = document.querySelector("#proyects h2 i");
 
         observer.forEach((element) => {
 
-            const folderIco = document.querySelector("#proyects h2 i");
             const {id} = element.target
             const {isIntersecting} = element
             // console.log(element.isIntersecting)
