@@ -216,11 +216,12 @@ document.addEventListener("click", () => {
     const observer = new IntersectionObserver(observerFunction,{
         root: null,
         rootMargin: "0px",
-        threshold: 1
+        threshold: .7
     })
 
     observer.observe(document.getElementById("home"));
-    observer.observe(document.getElementById("about"))
+    observer.observe(document.getElementById("about"));
+    observer.observe(document.getElementById("proyects"));
 //---
 
 // Certificate animation

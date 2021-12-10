@@ -34,12 +34,13 @@ const changeLanguage = () => {
         const aboutP4 = document.querySelector("#about div p:nth-of-type(4)"); 
         const aboutGoBack = document.querySelector("#about .go-back"); 
         const aboutDownload = document.querySelector("#about .download"); 
+        const proyectsTitle = document.querySelector("#proyects .title");
         // ---
         
         // Function who writes the text
         const writeText = (languageSelected) => {
 
-            const {nav,age,skills,name,about,experience} = data.language[languageSelected];
+            const {nav,age,skills,name,about,experience,proyects} = data.language[languageSelected];
 
              //Nav Paragraphs
              navParagraphs[0].innerHTML = nav.home;
@@ -62,6 +63,9 @@ const changeLanguage = () => {
              aboutP4.innerHTML = about.see_certificates;
              aboutGoBack.innerHTML = about.go_back;
              aboutDownload.innerHTML = about.download_certificate;
+
+            //  Proyects
+             proyectsTitle.innerHTML = proyects.title
 
         }
         
