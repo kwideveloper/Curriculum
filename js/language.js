@@ -19,7 +19,7 @@ const changeLanguage = () => {
     
     const languageSelected = parseInt(localStorage.getItem("language")|0);
     // Fetch the Json
-    fetch("./json/data.json")
+    fetch("../json/data.json")
     .then(response => response.json())
     .then(data => {
 
