@@ -36,6 +36,7 @@
             "name": "Nombre",
             "age": "Edad",
             "experience": "Experiencia: 3 años",
+            "skills": "Habilidades <i class='fas fa-graduation-cap'></i>",
             "about": {
                 "h2":"Déjame presentarme <i class='fas fa-user-astronaut'></i>",
                 "p1": "Mi nombre es Andrés, tengo 22 años, soy desarrollador Web desde hace <span>3</span> años",
