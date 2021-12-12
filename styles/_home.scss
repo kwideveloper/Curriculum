@@ -298,6 +298,7 @@ section {
                 transform: translateZ(10px);
                 z-index: 10;
                 transition: all .7s ease;
+                text-align: center;
 
                 i{
                     color: white;
@@ -411,6 +412,10 @@ section {
         border-radius: 10px;
         box-shadow: 0 0 3px white;
         padding: 10px;
+        background: rgba(0,0,0,.8);
+        backdrop-filter: blur(3px);
+        position: sticky;
+        bottom: -25px;
         
         i {
             transition: all .25s;

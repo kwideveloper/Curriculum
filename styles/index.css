@@ -398,6 +398,7 @@ section {
   z-index: 10;
   -webkit-transition: all .7s ease;
   transition: all .7s ease;
+  text-align: center;
 }
 
 #home #self-card .skills h2 i {
@@ -543,6 +544,12 @@ section {
   -webkit-box-shadow: 0 0 3px white;
           box-shadow: 0 0 3px white;
   padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: -25px;
 }
 
 #about .see-certificates i {
