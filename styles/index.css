@@ -481,7 +481,7 @@ section {
   background: -webkit-gradient(linear, left top, left bottom, from(black), to(transparent));
   background: linear-gradient(to bottom, black, transparent);
   margin-top: 0;
-  height: 400px;
+  height: 450px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -513,18 +513,25 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 40%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   margin: 50px auto 0 auto;
   padding: 20px;
   border-radius: 10px;
+  width: 45%;
+  padding: 30px;
+  overflow: auto;
+  justify-content: center;
 }
 
 #about div {
   -webkit-box-shadow: 0 0 15px white;
           box-shadow: 0 0 15px white;
   position: relative;
+  overflow: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #about .see-certificates {
@@ -880,6 +887,131 @@ section {
     -webkit-transform: scale(15);
             transform: scale(15);
     opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  #home {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 100px 0;
+    height: 1100px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  #home #self-card {
+    margin-top: 130px;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+  }
+  #home #self-card p:last-of-type {
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  #home #self-card p:nth-of-type(2) {
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  #home #self-card .skills {
+    margin-top: 50px;
+    top: 100%;
+    position: absolute;
+    border-radius: 10px;
+    width: 100%;
+    z-index: 20;
+    opacity: 1;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 20px;
+  }
+  #about {
+    height: 400px;
+  }
+  #about div {
+    overflow: auto;
+    width: 90%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    text-align: center;
+  }
+  #about .certificates {
+    overflow: auto;
+    width: 90%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    text-align: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #about .certificates .custom-card {
+    width: 40% !important;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  #about .certificates .custom-card:first-of-type {
+    margin-top: 50px;
+  }
+  #about .certificates .download {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+  #proyects {
+    padding: 10px;
+  }
+  #proyects .custom-card {
+    width: 40%;
+    -webkit-transform: rotateY(0) !important;
+            transform: rotateY(0) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  #proyects {
+    padding: 10px;
+  }
+  #proyects h2 {
+    font-size: 30px !important;
+  }
+  #proyects .custom-card {
+    width: 90%;
+    margin-top: 10px;
+  }
+  #about .certificates .custom-card {
+    width: 80% !important;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  #about .certificates .custom-card:first-of-type {
+    margin-top: 50px;
+  }
+  #about .certificates .download {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+@media (max-width: 400px) {
+  #home {
+    width: 100%;
+  }
+  #home #self-card {
+    width: 60%;
+    height: 250px;
+  }
+  #home #self-card .skill {
+    min-width: 84px;
+  }
+}
+
+@media (max-width: 375px) {
+  nav a {
+    padding: 20px 10px;
   }
 }
 

@@ -33,120 +33,125 @@ const selfImage = document.querySelector("#self-card img");
 const skills = document.querySelector(".skills h2");
 const skillsParagraphs = document.querySelectorAll(".skills .skill");
 
-home.addEventListener("mousemove", (e) => {
 
-    const xAxis = (window.innerWidth/2 - e.screenX) / 25;
-    const yAxis = (window.innerHeight/2 - e.screenY) / 25;
-    
-    selfCard.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg) translateX(-50%) translateZ(300px)`;
-    description.classList.add("skills-description");
-
-    
-})
-//---
 
 // On mouse In & mouse Out
+// Execute this when window width is higher than 1000px for the responsive
+if(window.innerWidth > 1000) {
 
-// Mouse In
-home.addEventListener("mouseenter", () => {
-    
-    // Timeout To leave the card open
-    setTimeout(() =>{
+    home.addEventListener("mousemove", (e) => {
+
+        const xAxis = (window.innerWidth/2 - e.screenX) / 25;
+        const yAxis = (window.innerHeight/2 - e.screenY) / 25;
         
-        selfCard.style.transition = "none";
-        selfCard.classList.add("self-card-hover");
+        selfCard.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg) translateX(-50%) translateZ(300px)`;
+        description.classList.add("skills-description");
+    
+        
+    })
+    //---
 
-        selfImage.style.borderTopRightRadius = "0";
-        selfImage.style.borderBottomRightRadius = "0";
-        selfCard.style.borderTopRightRadius = "0";
-        selfCard.style.borderBottomRightRadius = "0";
+    // Mouse In
+    home.addEventListener("mouseenter", () => {
+        
+        // Timeout To leave the card open
+        setTimeout(() =>{
+            
+            selfCard.style.transition = "none";
+            selfCard.classList.add("self-card-hover");
 
-        skills.style.transform = "translateZ(80px)";
+            selfImage.style.borderTopRightRadius = "0";
+            selfImage.style.borderBottomRightRadius = "0";
+            selfCard.style.borderTopRightRadius = "0";
+            selfCard.style.borderBottomRightRadius = "0";
+
+            skills.style.transform = "translateZ(80px)";
+            
+            paragraphs.forEach((paragraph,i) => {
+
+                setTimeout(() =>{
+                    paragraph.style.transform = "translateZ(50px)"; 
+                    
+                    if(i===1) {
+                        paragraph.style.transform = "translateZ(40px)"; 
+                    }
+
+                    if(i===2) {
+                        executeParagraphAnimation();
+                    }
+                },`${i}00`);
+
+                const executeParagraphAnimation = () => {
+                    setTimeout(() =>{
+                        paragraph.style.animation = "bouncing .5s ease-in-out infinite alternate";
+                    },700);
+                }
+
+            })
+
+            skillsParagraphs.forEach((paragraph,i) => {
+
+                setTimeout(() =>{
+                    paragraph.style.transform = "translateZ(50px)"; 
+                },`${i}00`)
+            })
+
+            
+
+        },700);
+        //---
+
+    })
+
+    // Mouse Out
+    home.addEventListener("mouseleave", () => {
+
+        selfCard.style.transition = "all .7s ease-in-out";
+        selfCard.classList.remove("self-card-hover");
+
+        selfImage.style.borderTopRightRadius = "10px";
+        selfImage.style.borderBottomRightRadius = "10px";
+        selfCard.style.borderTopRightRadius = "10px";
+        selfCard.style.borderBottomRightRadius = "10px";
+
+        skills.style.transform = "translateZ(0)";
         
         paragraphs.forEach((paragraph,i) => {
-
-            setTimeout(() =>{
-                paragraph.style.transform = "translateZ(50px)"; 
-                
-                if(i===1) {
-                    paragraph.style.transform = "translateZ(40px)"; 
-                }
-
-                if(i===2) {
-                    executeParagraphAnimation();
-                }
-            },`${i}00`);
-
-            const executeParagraphAnimation = () => {
+            
+            if(i === 1) {
+                paragraph.style.borderBottomLeftRadius = "10px";
+            } 
+            
+            if(i === 2){
+                paragraph.style.borderTopRightRadius = "10px";
+                paragraph.style.animation = "none";
+            } 
+            
+            paragraphs.forEach((paragraph,i) => {
                 setTimeout(() =>{
-                    paragraph.style.animation = "bouncing .5s ease-in-out infinite alternate";
-                },700);
-            }
-
+                    paragraph.style.transform = "translateZ(0px)";
+                },`${i}00`);
+            })
+            
         })
 
         skillsParagraphs.forEach((paragraph,i) => {
-
-            setTimeout(() =>{
-                paragraph.style.transform = "translateZ(50px)"; 
-            },`${i}00`)
+            paragraph.style.transform = "translateZ(10px)"; 
         })
 
-        
+        setTimeout(() => {
+            selfCard.style.transform = "translateX(0) translateY(0) translateZ(300px)";
+            description.classList.remove("skills-description");  
+        }, 700);
 
-    },700);
+        skillsParagraphs.forEach((paragraph) => {
+            paragraph.style.transform = "translateZ(10px)"; 
+        })
+
+
+    })
     //---
-
-})
-
-// Mouse Out
-home.addEventListener("mouseleave", () => {
-
-    selfCard.style.transition = "all .7s ease-in-out";
-    selfCard.classList.remove("self-card-hover");
-
-    selfImage.style.borderTopRightRadius = "10px";
-    selfImage.style.borderBottomRightRadius = "10px";
-    selfCard.style.borderTopRightRadius = "10px";
-    selfCard.style.borderBottomRightRadius = "10px";
-
-    skills.style.transform = "translateZ(0)";
-    
-    paragraphs.forEach((paragraph,i) => {
-        
-        if(i === 1) {
-            paragraph.style.borderBottomLeftRadius = "10px";
-        } 
-        
-        if(i === 2){
-            paragraph.style.borderTopRightRadius = "10px";
-            paragraph.style.animation = "none";
-        } 
-        
-        paragraphs.forEach((paragraph,i) => {
-            setTimeout(() =>{
-                paragraph.style.transform = "translateZ(0px)";
-            },`${i}00`);
-        })
-        
-    })
-
-    skillsParagraphs.forEach((paragraph,i) => {
-        paragraph.style.transform = "translateZ(10px)"; 
-    })
-
-    setTimeout(() => {
-        selfCard.style.transform = "translateX(0) translateY(0) translateZ(300px)";
-        description.classList.remove("skills-description");  
-    }, 700);
-
-    skillsParagraphs.forEach((paragraph) => {
-        paragraph.style.transform = "translateZ(10px)"; 
-    })
-
-
-})
-//---
+}
 
 
 
@@ -182,39 +187,39 @@ document.addEventListener("click", () => {
 // Intersection observer for the navbar
     // FUNCTION
 
-    const observerFunction = (observer) => {
-        const navItems = document.querySelectorAll("nav a");
-        const folderIco = document.querySelector("#proyects h2 i");
+const observerFunction = (observer) => {
+    const navItems = document.querySelectorAll("nav a");
+    const folderIco = document.querySelector("#proyects h2 i");
 
-        observer.forEach((element) => {
+    observer.forEach((element) => {
 
-            const {id} = element.target
-            const {isIntersecting} = element
-            // console.log(element.isIntersecting)
-            const removeClass = () => {
-                navItems.forEach(e => {
-                    e.classList.remove("nav-active");
-                })
-            }
-            
-            if(isIntersecting && id === "home") {
-                removeClass();
-                navItems[0].classList.add("nav-active");
-            } else if(isIntersecting && id === "about") {
-                removeClass();
-                navItems[1].classList.add("nav-active");
-            } else if(isIntersecting && id === "proyects") {
-                removeClass();
-                folderIco.className = "fas fa-folder-open";
-                navItems[2].classList.add("nav-active");
-            } else {
-                folderIco.className = "fas fa-folder";
-            }
+        const {id} = element.target
+        const {isIntersecting} = element
+        // console.log(element.isIntersecting)
+        const removeClass = () => {
+            navItems.forEach(e => {
+                e.classList.remove("nav-active");
+            })
+        }
+        
+        if(isIntersecting && id === "home") {
+            removeClass();
+            navItems[0].classList.add("nav-active");
+        } else if(isIntersecting && id === "about") {
+            removeClass();
+            navItems[1].classList.add("nav-active");
+        } else if(isIntersecting && id === "proyects") {
+            removeClass();
+            folderIco.className = "fas fa-folder-open";
+            navItems[2].classList.add("nav-active");
+        } else {
+            folderIco.className = "fas fa-folder";
+        }
 
-            
-        })
-    
-    }
+        
+    })
+
+}
 
 // OBSERVER
 const observer = new IntersectionObserver(observerFunction,{
