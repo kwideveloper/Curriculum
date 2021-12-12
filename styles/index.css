@@ -935,6 +935,9 @@ section {
     height: fit-content;
     padding: 20px;
   }
+  #home #self-card .skills h2 {
+    font-size: 21px !important;
+  }
   #about {
     height: 400px;
   }
@@ -970,6 +973,9 @@ section {
   }
   #proyects {
     padding: 10px;
+  }
+  #proyects h2 {
+    font-size: 40px !important;
   }
   #proyects .custom-card {
     width: 40%;
