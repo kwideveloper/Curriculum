@@ -1,10 +1,31 @@
+@media (min-width: 1400px) {
+
+    #about {
+        div{
+            justify-content: center;
+            h2 {
+                margin-top: 0;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1024px) {
+    #about{
+        div{
+            padding-top:0;
+        }
+    }
+}
+
 @media (max-width: 768px) {
 
     #home {
 
         flex-wrap: wrap;
         padding: 100px 0;
-        height: 1100px;
+        height: 1020px;
         align-items: flex-start;
 
         #self-card {
@@ -58,6 +79,7 @@
             width: 90%;
             justify-content: flex-start;
             text-align: center;
+            padding-top:0;
         }
 
         

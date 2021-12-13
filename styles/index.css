@@ -530,9 +530,19 @@ section {
           box-shadow: 0 0 15px white;
   position: relative;
   overflow: auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 30px;
+}
+
+#about div h2 {
+  margin-top: 25px;
+}
+
+#about div p {
+  margin: 0;
+  margin-top: 10px;
 }
 
 #about .see-certificates {
@@ -897,12 +907,29 @@ section {
   }
 }
 
+@media (min-width: 1400px) {
+  #about div {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #about div h2 {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  #about div {
+    padding-top: 0;
+  }
+}
+
 @media (max-width: 768px) {
   #home {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     padding: 100px 0;
-    height: 1100px;
+    height: 1020px;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -948,6 +975,7 @@ section {
         -ms-flex-pack: start;
             justify-content: flex-start;
     text-align: center;
+    padding-top: 0;
   }
   #about .certificates {
     overflow: auto;
