@@ -8,7 +8,7 @@ const languageData = [
             },
             "name": "Name",
             "age": "Age",
-            "experience": "Experience: 3 Years",
+            "experience": "Experience: 4 Years",
             "skills": "Skills <i class='fas fa-graduation-cap'></i>",
             "about": {
                 "h2":"Let me introduce myself <i class='fas fa-user-astronaut'></i>",
@@ -34,7 +34,7 @@ const languageData = [
             },
             "name": "Nombre",
             "age": "Edad",
-            "experience": "Experiencia: 3 años",
+            "experience": "Experiencia: 4 años",
             "skills": "Habilidades <i class='fas fa-graduation-cap'></i>",
             "about": {
                 "h2":"Déjame presentarme <i class='fas fa-user-astronaut'></i>",
