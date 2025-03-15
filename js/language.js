@@ -1,107 +1,91 @@
-
-// Animating Language button
+// Selectors
 const language = document.getElementById("language");
 const es = document.querySelector("#language .es");
 const en = document.querySelector("#language .en");
 
+// Animating Language button
 language.addEventListener("mousemove", () => {
     language.style.transform = "translateX(0)";
-})
+});
 
 language.addEventListener("mouseleave", () => {
     language.style.transform = "translateX(80px)";
-})
-//---
+});
 
-// Changing language on click
-let languageSelected = parseInt(localStorage.getItem("language")|0);
-const changeLanguage = () => {
-    
-    let languageSelected = parseInt(localStorage.getItem("language")|0);
-    const data = languageData;
+// Language data object (should be defined elsewhere)
+const languageData = {
+    0: { 
+        nav: { home: "Home", about: "About", proyects: "Projects" },
+        age: "Age",
+        skills: "Skills",
+        name: "Name",
+        about: { h2: "About Me", p1: "Text 1", p2: "Text 2", p3: "Text 3", see_certificates: "Certificates", go_back: "Back", download_certificate: "Download" },
+        experience: "Experience",
+        proyects: { title: "My Projects" }
+    },
+    1: { 
+        nav: { home: "Inicio", about: "Acerca", proyects: "Proyectos" },
+        age: "Edad",
+        skills: "Habilidades",
+        name: "Nombre",
+        about: { h2: "Sobre Mí", p1: "Texto 1", p2: "Texto 2", p3: "Texto 3", see_certificates: "Certificados", go_back: "Volver", download_certificate: "Descargar" },
+        experience: "Experiencia",
+        proyects: { title: "Mis Proyectos" }
+    }
+};
 
-    // Variables
+// Get saved language
+let languageSelected = parseInt(localStorage.getItem("language")) || 0;
+
+// Function to update text content
+const changeLanguage = (lang) => {
+    localStorage.setItem("language", lang);
+
+    const data = languageData[lang];
+
+    // Elements
     const navParagraphs = document.querySelectorAll("nav a");
     const skillParagraph = document.querySelector(".skills h2");
-    const aboutDiv = document.querySelector("#about");
     const aboutH2 = document.querySelector("#about h2");
-    const aboutP1 = document.querySelector("#about div p");
-    const aboutP2 = document.querySelector("#about div p:nth-of-type(2)"); 
-    const aboutP3 = document.querySelector("#about div p:nth-of-type(3)"); 
-    const aboutP4 = document.querySelector("#about div p:nth-of-type(4)"); 
-    const aboutGoBack = document.querySelector("#about .go-back"); 
-    const aboutDownload = document.querySelector("#about .download"); 
+    const aboutParagraphs = document.querySelectorAll("#about div p");
+    const aboutGoBack = document.querySelector("#about .go-back");
+    const aboutDownload = document.querySelector("#about .download");
     const proyectsTitle = document.querySelector("#proyects .title");
-    // ---
+    const paragraphs = document.querySelectorAll(".some-selector"); //
 
-    // Function who writes the text
-    const writeText = (languageSelected) => {
+    // Update text content
+    navParagraphs[0].textContent = data.nav.home;
+    navParagraphs[1].textContent = data.nav.about;
+    navParagraphs[2].textContent = data.nav.proyects;
 
-        const {nav,age,skills,name,about,experience,proyects} = data[languageSelected];
+    paragraphs[0].childNodes[1].textContent = data.name;
+    paragraphs[1].childNodes[1].textContent = data.age;
+    paragraphs[2].textContent = data.experience;
 
-        //Nav Paragraphs
-        navParagraphs[0].innerHTML = nav.home;
-        navParagraphs[1].innerHTML = nav.about;
-        navParagraphs[2].innerHTML = nav.proyects;
+    skillParagraph.style.fontSize = "32px";
+    skillParagraph.textContent = data.skills;
 
-        // Card/Image Paragraphs
-        paragraphs[0].childNodes[1].innerHTML = name;
-        paragraphs[1].childNodes[1].innerHTML = age;
-        paragraphs[2].innerHTML = experience;
+    aboutH2.textContent = data.about.h2;
+    aboutParagraphs[0].textContent = data.about.p1;
+    aboutParagraphs[1].textContent = data.about.p2;
+    aboutParagraphs[2].textContent = data.about.p3;
+    aboutParagraphs[3].textContent = data.about.see_certificates;
+    aboutGoBack.textContent = data.about.go_back;
+    aboutDownload.textContent = data.about.download_certificate;
 
-        skillParagraph.style.fontSize = "32px";
-        skillParagraph.innerHTML = skills;
+    proyectsTitle.textContent = data.proyects.title;
 
-        // About
-        aboutH2.innerHTML = about.h2;
-        aboutP1.innerHTML = about.p1;
-        aboutP2.innerHTML = about.p2;
-        aboutP3.innerHTML = about.p3
-        aboutP4.innerHTML = about.see_certificates;
-        aboutGoBack.innerHTML = about.go_back;
-        aboutDownload.innerHTML = about.download_certificate;
+    // Toggle active class
+    es.classList.toggle("active", lang === 1);
+    en.classList.toggle("active", lang === 0);
+};
 
-        //  Proyects
-        proyectsTitle.innerHTML = proyects.title
+// Event listeners for language switch
+document.querySelectorAll("#language .es, #language .en").forEach(btn => {
+    btn.addEventListener("click", () => {
+        changeLanguage(parseInt(btn.dataset.lang));
+    });
+});
 
-    }
-    
-    if(languageSelected === 0){
-        writeText(0);
-    } else {
-        writeText(1);
-    }
-
-}
-
-en.addEventListener("click", () => {
-
-    en.classList.add("active");
-    es.classList.remove("active");
-
-    localStorage.setItem("language",0);
-    changeLanguage(0);
-    
-}); 
-
-es.addEventListener("click",() => {
-
-    es.classList.add("active");
-    en.classList.remove("active");
-
-    localStorage.setItem("language",1);
-    changeLanguage(1);
-}); 
-
-//---
-
-
-languageSelected = parseInt(localStorage.getItem("language")|0);
-if(languageSelected === 0) {
-    en.classList.add("active");
-    changeLanguage(0);
-} else {
-    es.classList.add("active");
-    changeLanguage(1);
-}
-
+// Initialize language on load
+changeLanguage(languageSelected);
